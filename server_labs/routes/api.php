@@ -17,5 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return response(\App\User::pluck('email'));
 });
 Route::get('/test', function () {
-    return response([1,2,3], 200);
+    return response([1, 2, 3], 200);
+});
+Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
+    Route::get('user-list', 'UserController@getUserList');
 });

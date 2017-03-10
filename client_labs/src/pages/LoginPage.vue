@@ -1,7 +1,13 @@
 <script>
+    import {mapState} from 'vuex'
     import {loginUrl, getHeader, userUrl} from './../config'
     import {clientId, clientSecret} from './../env'
     export default {
+      computed: {
+        ...mapState({
+          userStore: state => state.userStore
+        })
+      },
       data () {
         return {
           login: {
@@ -34,6 +40,7 @@
                      authUser.email = response.body.email
                      authUser.name = response.body.name
                      window.localStorage.setItem('authUser', JSON.stringify(authUser))
+                     this.$store.dispatch('setUserObject', authUser)
                      this.$router.push({name: 'dashboard'})
                    })
                }
@@ -75,5 +82,5 @@
 
 <style lang="sass">
     #login-wrapper
-
+      margin-top: 50px
 </style>

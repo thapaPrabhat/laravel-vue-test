@@ -3,9 +3,14 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
+import store from './store'
+
 import App from './App'
-import DashboardPage from './pages/DashboardPage.vue'
-import LoginPage from './pages/LoginPage.vue'
+
+import DashboardPage from './pages/DashboardPage'
+import LoginPage from './pages/LoginPage'
+import ChatPage from './pages/ChatPage'
+
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -14,7 +19,8 @@ Vue.component('app', App)
 
 const routes = [
     {path: '/', component: LoginPage, name: 'home'},
-    {path: '/dashboard', component: DashboardPage, name: 'dashboard', meta: { requiresAuth: true }}
+    {path: '/dashboard', component: DashboardPage, name: 'dashboard', meta: { requiresAuth: true }},
+    {path: '/chat', component: ChatPage, name: 'chat', meta: { requiresAuth: true }}
 ]
 
 const router = new VueRouter({
@@ -35,5 +41,5 @@ router.beforeEach((to, from, next) => {
 })
 
 new Vue({
-  router
+  router, store
 }).$mount('#app')
