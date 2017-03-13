@@ -20,23 +20,23 @@
 
 <template>
     <div class="wrapper" id="chat-wrapper">
-    <section class="header">
-    <h1 class="page-title">Chat <small>Get connected with your friends.</small></h1>
-    </section>
+        <section class="header">
+            <h1 class="page-title">Chat <small>Get connected with your friends.</small></h1>
+        </section>
 
-    <section class="content">
-    <div class="row">
-    <div class="col-md-2" id="user-list-col">
-    <user-list></user-list>
-    </div>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-2" id="user-list-col">
+                    <user-list></user-list>
+                </div>
 
-    <div class="col-md-10">
-    <chat-block></chat-block>
+                <div class="col-md-10">
+                    <chat-block></chat-block>
+                </div>
+             </div>
+        </section>
     </div>
-    </div>
-    </section>
-    </div>
-    </template>
+</template>
 
 <style lang="scss">
     @import './../assets/css/variables.scss';
