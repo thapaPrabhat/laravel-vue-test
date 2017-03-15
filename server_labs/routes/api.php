@@ -13,4 +13,5 @@ Route::get('/test', function () {
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
     Route::get('user-list', 'UserController@getUserList');
     Route::post('get-user-conversation', 'ChatController@getUserConversationById');
+    Route::post('chat-save', 'ChatController@saveUserChat');
 });

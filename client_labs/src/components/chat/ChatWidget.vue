@@ -26,10 +26,26 @@
     </div>
 </template>
 
-<style lang="sass">
-    .name
-      font-weight: 600
-    .time
-      font-size: 80%
-      font-weight: 500
+<style lang="scss">
+    @import './../../assets/css/variables.scss';
+    .conversation {
+        border-bottom: 1px solid $border-color;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+    .sender-data .name {
+        float: left;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+    .sender-data .time {
+        font-size: 0.8em;
+        float: left;
+        margin-left: 10px;
+        line-height: 21px;
+    }
+    &:last-child {
+         border-bottom: none;
+         padding-bottom: 6em;
+     }
+    }
 </style>
