@@ -9,6 +9,11 @@ import LoginPage from './pages/LoginPage'
 import DashboardPage from './pages/DashboardPage'
 import ChatPage from './pages/ChatPage'
 
+import PrivateMessageInbox from './components/private-message/PrivateMessageInbox'
+import PrivateMessageCompose from './components/private-message/PrivateMessageCompose'
+import PrivateMessageSent from './components/private-message/PrivateMessageSent'
+import PrivateMessageView from './components/private-message/PrivateMessageView'
+
 import Logger from './plugins/Logger'
 
 Vue.use(VueRouter)
@@ -20,7 +25,12 @@ Vue.component('app', App)
 const routes = [
   {path: '/', component: LoginPage, name: 'home'},
   {path: '/dashboard', component: DashboardPage, name: 'dashboard', meta: { requiresAuth: true }},
-  {path: '/chat', component: ChatPage, name: 'chat', meta: { requiresAuth: true }}
+  {path: '/chat', component: ChatPage, name: 'chat', meta: { requiresAuth: true }},
+  {path: '/new-pm', component: PrivateMessageCompose, name: 'new-pm', meta: { requiresAuth: true }},
+  {path: '/inbox-pms', component: PrivateMessageInbox, name: 'inbox-pms', meta: { requiresAuth: true }},
+  {path: '/pms/:id', component: PrivateMessageView, name: 'pm-view', meta: { requiresAuth: true }},
+  {path: '/sent-pms', component: PrivateMessageSent, name: 'my-sent-pms', meta: { requiresAuth: true }}
+
 ]
 
 const router = new VueRouter({
