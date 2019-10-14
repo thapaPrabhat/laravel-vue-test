@@ -57,4 +57,15 @@ class PrivateMessageController extends Controller
 //        $redis->publish('message', $data);
         return response(['data' => $data], 201);
     }
+
+
+    public function unreadPrivateMessage(Request $request)
+    {
+        $pm = PrivateMessage::where('id', $request->id)->first();
+        $pm->read = 0;
+        $pm->save();
+//        $redis = LRedis::connection();
+//        $redis->publish('message', $data);
+        return response(['data' => $pm], 201);
+    }
 }
