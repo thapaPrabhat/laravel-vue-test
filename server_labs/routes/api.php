@@ -23,4 +23,5 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
     Route::post('get-private-message', 'PrivateMessageController@getPrivateMessagesById');
     Route::post('get-private-messages-sent', 'PrivateMessageController@getPrivateMessageSent');
     Route::post('send-private-messages', 'PrivateMessageController@sendPrivateMessage');
+    Route::post('unread-private-messages', 'PrivateMessageController@unreadPrivateMessage');
 });
